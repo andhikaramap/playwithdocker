@@ -21,7 +21,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/department")
-@PreAuthorize("hasAnyRole('admin', 'employee')")
+//@PreAuthorize("hasAnyRole('admin', 'employee')")
 public class DepartmentController {
 
     private DepartmentService departmentService;
@@ -32,33 +32,33 @@ public class DepartmentController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('READ')")
+//    @PreAuthorize("hasAuthority('READ')")
     public ResponseEntity<List<Department>> getAll() {
         return new ResponseEntity(departmentService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('READ')")
+//    @PreAuthorize("hasAuthority('READ')")
     public ResponseEntity<Department> getById(
             @PathVariable("id") Integer id) {
         return new ResponseEntity(departmentService.getById(id), HttpStatus.OK);
     }
 
     @PostMapping
-    @PreAuthorize("hasAuthority('CREATE')")
+//    @PreAuthorize("hasAuthority('CREATE')")
     public ResponseEntity<Department> create(@RequestBody Department department) {
         return new ResponseEntity(departmentService.create(department), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority('UPDATE')")
+//    @PreAuthorize("hasAuthority('UPDATE')")
     public ResponseEntity<Department> update(
             @PathVariable("id") Integer id, @RequestBody Department department) {
         return new ResponseEntity(departmentService.update(id, department), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('DELETE')")
+//    @PreAuthorize("hasAuthority('DELETE')")
     public ResponseEntity<Department> delete(@PathVariable("id") Integer id) {
         return new ResponseEntity(departmentService.delete(id), HttpStatus.OK);
     }

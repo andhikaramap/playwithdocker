@@ -46,10 +46,7 @@ public class WebConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/user/**", "/employee/**",
-                        "/department/**", "/project/**", "/email/**", "/login/**")
-                .permitAll()
-                .antMatchers("/employee-department/**", "/employee-project/**")
+                .antMatchers("/**/**")
                 .permitAll()
 //                .hasAnyRole("ADMIN", "EMPLOYEE")
                 .anyRequest()

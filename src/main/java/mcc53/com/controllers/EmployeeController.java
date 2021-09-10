@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/employee")
-@PreAuthorize("hasAnyRole('admin')")
+//@PreAuthorize("hasAnyRole('admin')")
 public class EmployeeController {
         
     /*
@@ -49,13 +49,13 @@ public class EmployeeController {
     
     
     @GetMapping
-    @PreAuthorize("hasAuthority('READ')")
+//    @PreAuthorize("hasAuthority('READ')")
     public ResponseEntity<List<Employee>> getAll() {
         return new ResponseEntity(employeeService.getAlll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('READ')")
+//    @PreAuthorize("hasAuthority('READ')")
     public ResponseEntity<ResponseEmployee> getById(@PathVariable("id") Integer id) {
         return new ResponseEntity(employeeService.getById(id), HttpStatus.OK);
     }
